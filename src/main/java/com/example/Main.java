@@ -23,13 +23,19 @@ public class Main {
         PrintWriter out = new PrintWriter(mioSocket.getOutputStream(),true);
 
         String stringaDaInviare;
-        do{
+    do{
         System.out.println("Inserisci la stringa da tastiera : ");
-     stringaDaInviare = myObj.nextLine();
+        stringaDaInviare = myObj.nextLine();
         out.println(stringaDaInviare);
         
         String stringaRicevuta = in.readLine();
-        System.out.println("Stringa ricevuta : "+stringaRicevuta);
+        if (stringaRicevuta == null) {
+            System.out.println("Connessione interrotta con successo");
+        }
+        else{
+            System.out.println("Stringa ricevuta : "+stringaRicevuta);
+        }
+       
     }while(!stringaDaInviare.equals("!"));
         
 
